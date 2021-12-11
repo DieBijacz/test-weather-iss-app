@@ -2,11 +2,13 @@ require('dotenv').config()
 const express = require('express')
 const Database = require('nedb')
 const app = express()
-console.log(process.env);
 
 const apiKey = process.env.apiKey
+const port = process.env.PORT || 3000
 
-app.listen(3000, () => {console.log('listen on 3000')})
+app.listen(port, () => {
+    console.log(`Starting server at ${port}`)
+})
 app.use(express.static('public'))
 app.use(express.json({limit: '1mb'}))
 
